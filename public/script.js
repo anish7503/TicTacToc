@@ -2,7 +2,6 @@ console.log("Welcome to The Game");
 
 let music = new Audio("SandG/music.mp3");
 let ting = new Audio("SandG/ting.mp3");
-let over = new Audio("SandG/gameover.mp3");
 
 let turn = "X";
 let isover = false;
@@ -30,6 +29,7 @@ const checkWin = () => {
             document.querySelector('.info').innerText = boxtext[e[0]].innerText + " Won"
             isover = true
             document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "300px";
+            music.play();
         }
     })
 
@@ -68,5 +68,6 @@ reset.addEventListener('click', ()=> {
     turn = "X"; 
     isover = false
     document.getElementsByClassName("info")[0].innerText  = "Start the Game";
-    document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "0px"
+    document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "0px";
+    music.pause();
 })

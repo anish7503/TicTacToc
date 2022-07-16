@@ -1,33 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Work+Sans:wght@200&display=swap');
+:root {
+    --theme: aqua;
+    --sec: #616161;
+ }
 *{
-    font-family: 'Roboto', sans-serif;
     font-family: 'Work Sans', sans-serif;
     margin: 0px;
     padding: 0px;
 }
 body{
-    background-color: #616161;
+    background-color: var(--sec);
 }
 
+/* For Flexing Heading ans Game Container */
 .whole{
     display:flex;
     flex-direction: column;
 }
 
 nav{
-    background: linear-gradient(#616161 0%, #333 10%, #222);
-    color: #fff;
+    background: linear-gradient( #555 0%, #333 10%, #222);
+    color: var(--theme);
     display: flex;
     font-size: 40px;
     font-weight: 100;
     justify-content: center;
     align-items: center;
     list-style: none;
-    padding: 10px 0px;
+    padding: 10px 20px;
 }
 
 .gameContainer{
-    color: #fff;
+    color: var(--theme);
     display: flex;
     justify-content: center;
     margin: 10vh;
@@ -36,8 +40,8 @@ nav{
 
 .gameContent{
     display:grid;
-    grid-template-rows: repeat(3, 10vw);
-    grid-template-columns: repeat(3, 10vw);
+    grid-template-rows: repeat(3, 9vw);
+    grid-template-columns: repeat(3, 9vw);
 }
 
 .box{
@@ -49,11 +53,28 @@ nav{
 }
 
 .box:hover{
-    background-color: aqua;
+    background-color: #fff;
+    transition: 1s ease-in-out;
 }
 
+/* Setting Game information */
 .gameinfo{
-    padding: 0px 70px;
+    width : 40vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.gameinfo h3{
+    font-size: 4vw;
+    font-weight: 1600;
+}
+
+.gameinfo .info{
+    position: relative;
+    font-size: 40px;
+    padding: 5px 10px;
+    margin-top: 4px;
 }
 
 .imgbox img{
@@ -66,10 +87,43 @@ nav{
 .bl0{ border-left: 0;}
 .bb0{ border-bottom: 0;}
 
-#reset{
-
+ /* Setting up button */
+ button{
+    color: #fff;
+    border: 3px solid #444;
+    background: var(--sec);
+    text-decoration: none;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    padding: 10px 30px;
+    margin: 0 20px;
+    
+    /* position relative needed because of after and before */
+    position: relative;
+    /* setting transition time */
+    transition: 0.5s;
+}
+button:hover {
+    letter-spacing: 0.25em;
+    /* for border */
+    border: 3px solid var(--theme);
+    /* for text */
+    color: var(--theme);
+    box-shadow: 0 0px 35px var(--theme);
 }
 
+
+.end{
+    background: linear-gradient( #222 0%, #333 10%, #555);
+    color: var(--theme);
+    display: flex;
+    font-size: 20px;
+    font-weight: 100;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+/* Media quweries for Mobile responsive game */
 @media screen and (max-width : 800px){
     .gameContainer{
         flex-wrap: wrap;
